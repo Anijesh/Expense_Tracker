@@ -1,32 +1,61 @@
-{% extends "base.html"%}
-{% block start %}
-<div  style="margin-top: -80px !important">
-<h3>Register Page</h3>
-<form method="POST" id="form">
-    {% csrf_token %}
-    <div class="form-control">
-        <label for="text">Username</label>
-        <input type="text" name="username" id="text" placeholder="Username..." />
-        <small>Unique username is required</small>
-    </div>
-    <div class="form-control">
-        <label for="text">First name</label>
-        <input type="text" name="first_name" id="text" placeholder="First Name..." />
-      
-    </div>
-    <div class="form-control">
-        <label for="text">Last name</label>
-        <input type="text" name="last_name" id="text" placeholder="Last Name..." />
-      
-    </div>
-    <div class="form-control">
-        <label for="amount">Password <br />
-        </label>
-        <input type="password" name="password" id="amount" placeholder="Password ..." />
-    </div>
-    <p> Already have an account <a href="{% url 'login_view' %}">Login</a></p>
-    <button class="btn" type="submit" style="background-color: chartreuse;">Register</button>
-</form>
+{% extends "base.html" %}
 
+{% block start %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 85vh;">
+    <div class="card shadow-sm p-4" style="width: 100%; max-width: 460px; border-radius: 12px;">
+
+        <h3 class="text-center mb-4 fw-bold">Create Account</h3>
+
+        <form method="POST" id="form">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text"
+                       name="username"
+                       class="form-control"
+                       placeholder="Choose a username"
+                       required>
+                <small class="text-muted">Unique username is required</small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text"
+                       name="first_name"
+                       class="form-control"
+                       placeholder="First name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text"
+                       name="last_name"
+                       class="form-control"
+                       placeholder="Last name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       placeholder="Create a password"
+                       required>
+            </div>
+
+            <button type="submit"
+                    class="btn w-100"
+                    style="background-color: chartreuse; color: black; border-radius: 8px;">
+                Register
+            </button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">
+            Already have an account?
+            <a href="{% url 'login_view' %}" class="fw-semibold">Login</a>
+        </p>
+
+    </div>
 </div>
 {% endblock %}

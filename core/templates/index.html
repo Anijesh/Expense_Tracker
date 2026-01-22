@@ -7,7 +7,26 @@
   <link rel="stylesheet" href="/public/static/css/main.css" />
 </head>
 <body>
-  <h1>Expense Tracker</h1>
+  <a href="{% url 'logout_view' %}"
+   class="btn"
+   style="
+     position: fixed;
+     top: 15px;
+     right: 15px;
+     background-color: red;
+     width: 150px;
+     text-align: center;
+     z-index: 9999;
+   ">
+  Logout
+</a>
+
+<h1>
+  <span style="font-weight: 700; color: #13168d;">
+    {{ request.user.first_name }}'s
+  </span>
+  Expense Tracker
+</h1>
 
   <div class="container">
     <div class="header">
